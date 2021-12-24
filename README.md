@@ -34,3 +34,45 @@ cargo test
 # Run sample ATM CLI
 cargo run
 ```
+
+Initial dummy data
+```
+# Format
+Card(PIN)
+- Account(Initial balance)
+...
+---
+
+1234567887654321(3579)
+- 10010001000(10000)
+- 10010001001(12000)
+- 10010001002(30000)
+- 10010001003(50000)
+
+8765432112345678(1470)
+- 10010002000(1000)
+- 10010002001(3000)
+- 10010002002(500)
+- 10010002003(10000)
+```
+
+# Memo
+For real application, sensitive data(such as card number and PIN number) will be wipe from memory.
+
+So, i select non script programming language, for handling memory easily in the future.
+
+And rust was easy to integrate with javascript as wasm.
+Also most of programming languages that used in production, support native interfaces.
+
+this project splited 3 parts.
+- bank
+
+	dummy system of backend system
+
+- bank-api
+
+	api that passing to another engineer who implement ATM
+
+- atm
+
+	sample interactive command-line interface for test api

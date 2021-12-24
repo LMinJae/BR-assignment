@@ -46,15 +46,15 @@ impl<'a> Dummy<'a> {
         );
         rst.accounts.insert(
             "10010001001".to_string(),
-            crate::account::Account::new(10000)
+            crate::account::Account::new(12000)
         );
         rst.accounts.insert(
             "10010001002".to_string(),
-            crate::account::Account::new(10000)
+            crate::account::Account::new(30000)
         );
         rst.accounts.insert(
             "10010001003".to_string(),
-            crate::account::Account::new(10000)
+            crate::account::Account::new(50000)
         );
 
         rst.cards.insert(
@@ -69,15 +69,15 @@ impl<'a> Dummy<'a> {
 
         rst.accounts.insert(
             "10010002000".to_string(),
-            crate::account::Account::new(10000)
+            crate::account::Account::new(1000)
         );
         rst.accounts.insert(
             "10010002001".to_string(),
-            crate::account::Account::new(10000)
+            crate::account::Account::new(3000)
         );
         rst.accounts.insert(
             "10010002002".to_string(),
-            crate::account::Account::new(10000)
+            crate::account::Account::new(500)
         );
         rst.accounts.insert(
             "10010002003".to_string(),
