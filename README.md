@@ -24,3 +24,10 @@ git clone https://github.com/LMinJae/BR-assignment
 ```
 
 # build and run tests
+```sh
+# If need rust install, using docker image
+alias cargo="docker run -it --rm -v .:/mnt -w /mnt rust cargo"
+
+# Run test cases
+cargo test
+```
