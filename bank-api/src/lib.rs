@@ -80,3 +80,20 @@ pub mod account {
   }
 }
 
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn it_works() {
+      crate::init();
+      let s = crate::Session::new();
+      
+      assert_eq!(crate::card::insert_card(&s, "1234567887654321".to_string()), Ok(()));
+      {
+        let mut pin: [u8; 4] = Default::default();
+        pin.copy_from_slice(b"3579");
+        assert_eq!(crate::card::verify_pin(&s, &pin), Ok(true));
+      }
+      assert_eq!(crate::card::account_select(&s, "10010001000".to_string()), Ok(()));
+      assert_eq!(crate::account::balance(&s), Ok(10000));
+    }
+}
