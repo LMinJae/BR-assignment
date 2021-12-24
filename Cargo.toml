@@ -2,4 +2,5 @@
 members = [
     "bank",
     "bank-api",
+    "atm",
 ]

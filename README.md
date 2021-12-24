@@ -30,4 +30,7 @@ alias cargo="docker run -it --rm -v .:/mnt -w /mnt rust cargo"
 
 # Run test cases
 cargo test
+
+# Run sample ATM CLI
+cargo run
 ```
