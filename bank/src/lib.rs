@@ -1,6 +1,30 @@
 pub mod account;
 pub mod card;
 
+use std::collections::HashMap;
+
+use uuid::Uuid;
+
+struct Session {
+    pub state: u8,
+    pub card_number: String,
+    pub verified: bool,
+    pub account_number: String,
+}
+
+pub trait Bank {
+    fn create_session(&mut self) -> Uuid;
+
+    fn insert_card(&mut self, session: &Uuid, card_number: String) -> Result<(), String>;
+    fn verify_pin(&mut self, session: &Uuid, pin: &[u8; 4]) -> Result<bool, String>;
+    fn account_list(&mut self, session: &Uuid) -> Result<Vec<String>, String>;
+    fn account_select(&mut self, session: &Uuid, account_number: String) -> Result<(), String>;
+
+    fn balance(&mut self, session: &Uuid) -> Result<u64, String>;
+    fn deposit(&mut self, session: &Uuid, amount: u64) -> Result<u64, String>;
+    fn withdraw(&mut self, session: &Uuid, amount: u64) -> Result<u64, String>;
+}
+
 #[cfg(test)]
 mod tests {
     #[test]
